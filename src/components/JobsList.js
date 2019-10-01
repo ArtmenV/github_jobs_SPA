@@ -12,7 +12,7 @@ export const JobsList = () => {
   }, []);
 
   return (
-    <div className="jumbotron">
+    <div className="container justify-content-center col-md-10">
       <ul className="jobs__list">
         {jobsList.map(job => {
           return (

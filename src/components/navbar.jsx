@@ -5,7 +5,7 @@ import "./navbar.scss";
 export const Navbar = () => {
   return (
     <nav className="navbar navbar-dark navbar-expand-md bg-primary">
-      <div className="navbar_container container">
+      <div className="d-flex container col-md-8">
         <div className="navbar-brand">
           <h4>Github jobs</h4>
         </div>
