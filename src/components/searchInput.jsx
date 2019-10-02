@@ -1,22 +1,30 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { loadJobsAction } from "../redux/actions/index.js";
 
 export const SearchInput = () => {
-  const [valueDescription, useValueDescription] = useState("");
-  const [valueLocation, useValueLocation] = useState("");
+  const [valueDescription, setValueDescription] = useState("");
+  const [valueLocation, setValueLocation] = useState("");
+  const [x, setX] = useState(false);
   const dispatch = useDispatch();
 
-  const valueInput = e => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useValueDescription(e.target.value);
+  const handler = () => {
+    setX(!x);
+  };
+
+  const valueInput1 = e => {
+    setValueDescription(e.target.value);
+  };
+
+  const valueInput2 = e => {
+    setValueLocation(e.target.value);
   };
 
   const handleFormValue = e => {
     e.preventDefault();
-    dispatch(loadJobsAction(valueDescription, valueLocation));
-    console.log(valueDescription, valueLocation);
+    dispatch(loadJobsAction(valueDescription, valueLocation, x));
   };
+
   return (
     <form onSubmit={handleFormValue} className="container col-md-8">
       <div className=" d-flex m-2 form-group container">
@@ -26,7 +34,7 @@ export const SearchInput = () => {
             className="form-control"
             placeholder="python"
             value={valueDescription}
-            onChange={valueInput}
+            onChange={valueInput1}
           />
         </div>
         <div className="form__container flex-grow-1 m-2">
@@ -36,17 +44,17 @@ export const SearchInput = () => {
             placeholder="Los Angeles"
             value={valueLocation}
             // eslint-disable-next-line react-hooks/rules-of-hooks
-            onChange={e => useValueLocation(e.target.value)}
+            onChange={valueInput2}
           />
         </div>
 
-        <div className="frm-check-radio-button m-3 align-self-right">
-          <div className="d-flex align-items-center justify-content-end">
+        <div className="frm-check-radio-button d-flex flex-wrap align-content-end p-2">
+          <div className="d-flex flex-wrap align-content-center mr-auto">
             <input
-              className="align-self-center m-2"
+              className=" m-2"
               type="checkbox"
-              value=""
-              id="defaultCheck1"
+              checked={x}
+              onChange={handler}
             />
             <label className="form-check-label" htmlFor="defaultCheck1">
               Full Time Only

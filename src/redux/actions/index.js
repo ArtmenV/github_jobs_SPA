@@ -6,7 +6,7 @@ export const START = "START";
 export const LOAD_JOBS = "LOAD_JOBS";
 // https://jobs.github.com/positions.json?description=python&location=new+york
 
-export const loadJobsAction = (description, location) => async dispatch => {
+export const loadJobsAction = (description, location, x) => async dispatch => {
   dispatch({
     type: LOAD_JOBS + START
   });
@@ -19,6 +19,7 @@ export const loadJobsAction = (description, location) => async dispatch => {
 
   dispatch({
     type: LOAD_JOBS + SUCCESS,
-    payload: loadJobs.data
+    payload: loadJobs.data,
+    check: x
   });
 };
