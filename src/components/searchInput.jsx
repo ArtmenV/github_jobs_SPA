@@ -1,33 +1,46 @@
-import React from "react";
-import "./searchInput.scss";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loadJobsAction } from "../redux/actions/index.js";
 
 export const SearchInput = () => {
+  const [valueDescription, useValueDescription] = useState("");
+  const [valueLocation, useValueLocation] = useState("");
+  const dispatch = useDispatch();
+
+  const valueInput = e => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useValueDescription(e.target.value);
+  };
+
+  const handleFormValue = e => {
+    e.preventDefault();
+    dispatch(loadJobsAction(valueDescription, valueLocation));
+    console.log(valueDescription, valueLocation);
+  };
   return (
-    <form className="container col-md-8">
+    <form onSubmit={handleFormValue} className="container col-md-8">
       <div className=" d-flex m-2 form-group container">
         <div className="form__container flex-grow-1 m-2">
           <label htmlFor="Description">Job Description</label>
           <input
-            type="email"
             className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
             placeholder="python"
+            value={valueDescription}
+            onChange={valueInput}
           />
         </div>
         <div className="form__container flex-grow-1 m-2">
           <label htmlFor="Description">Location</label>
           <input
-            type="email"
             className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
             placeholder="Los Angeles"
+            value={valueLocation}
+            // eslint-disable-next-line react-hooks/rules-of-hooks
+            onChange={e => useValueLocation(e.target.value)}
           />
         </div>
 
         <div className="frm-check-radio-button m-3 align-self-right">
-          <label className="form-check-label" htmlFor="defaultCheck1"></label>
           <div className="d-flex align-items-center justify-content-end">
             <input
               className="align-self-center m-2"

@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./JobItem.scss";
 import moment from "moment";
 
 export const JobItem = ({ job }) => {
