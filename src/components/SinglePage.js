@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./SinglePage.scss";
 
@@ -22,7 +23,14 @@ export const SinglePage = () => {
     };
 
     return (
-      <div className="jumbotron bg-white d-flex" key={job.id}>
+      <div
+        className="jumbotron bg-white d-flex flex-column container"
+        key={job.id}
+      >
+        <NavLink to="/" className="text-success">
+          <h5>&lt; Back on full list</h5>
+          <hr />
+        </NavLink>
         <div className="d-flex container">
           <div className="">
             <p>
@@ -38,7 +46,7 @@ export const SinglePage = () => {
               <div className="logo_card-inner">
                 <span>{job.company}</span>
               </div>
-              <div className="logo_card-inner">
+              <div className="logo_card-inner d-flex justify-content-center">
                 <img src={job.company_logo} alt="logo" className="logo" />
               </div>
               <div className="logo_card-inner">

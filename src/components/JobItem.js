@@ -17,7 +17,7 @@ export const JobItem = ({ job }) => {
     <div className="container col-md-10">
       <div className="d-flex p-2 flex__container ">
         <div>
-          <NavLink to="" onClick={() => singleFile(job.id)}>
+          <NavLink to="/idForm" onClick={() => singleFile(job.id)}>
             <h5>{job.title}</h5>
           </NavLink>
           <span>

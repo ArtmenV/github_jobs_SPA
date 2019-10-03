@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { loadJobsAction } from "../redux/actions/index.js";
+import { loadJobsAction, loadAllJobsAction } from "../redux/actions/index.js";
 
 export const SearchInput = ({ currentPage }) => {
   const [valueDescription, setValueDescription] = useState("");
@@ -22,11 +22,12 @@ export const SearchInput = ({ currentPage }) => {
 
   const handleFormValue = e => {
     e.preventDefault();
+    dispatch(loadJobsAction(valueDescription, valueLocation, x, currentPage));
   };
 
   useEffect(() => {
-    dispatch(loadJobsAction(valueDescription, valueLocation, x, currentPage));
-  });
+    dispatch(loadAllJobsAction());
+  }, []);
 
   return (
     <form onSubmit={handleFormValue} className="container col-md-8">

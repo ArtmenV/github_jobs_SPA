@@ -12,12 +12,7 @@ export const Navbar = () => {
         <ul className="navbar-nav">
           <li className="nav-item">
             <NavLink className="nav-link" to="/" exact>
-              Главная
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/about">
-              Вакансии
+              <h5>Home</h5>
             </NavLink>
           </li>
         </ul>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Navbar } from "../components/navbar";
 import { SearchInput } from "../components/searchInput.jsx";
 import { JobsList } from "../components/JobsList";
 import { PaginationButton } from "../components/PaginationButton.js";
@@ -17,7 +16,6 @@ export function MainPage() {
 
   return (
     <>
-      <Navbar />
       <SearchInput currentPage={currentPage} />
       <hr />
       <JobsList />

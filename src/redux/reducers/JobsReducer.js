@@ -1,4 +1,10 @@
-import { LOAD_JOBS, START, SUCCESS, LOAD_SINGLE_FILE } from "../actions";
+import {
+  START,
+  SUCCESS,
+  LOAD_SINGLE_FILE,
+  LOAD_ALL_JOBS,
+  LOAD_FILTER_JOBS
+} from "../actions";
 
 const initState = {
   loading: false,
@@ -10,12 +16,24 @@ const initState = {
 
 export const JobsReducer = (state = initState, action) => {
   switch (action.type) {
-    case LOAD_JOBS + START:
+    case LOAD_ALL_JOBS + START:
       return {
         ...state,
         loading: true
       };
-    case LOAD_JOBS + SUCCESS:
+    // eslint-disable-next-line no-duplicate-case
+    case LOAD_ALL_JOBS + SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        jobs: action.payload
+      };
+    case LOAD_FILTER_JOBS + START:
+      return {
+        ...state,
+        loading: true
+      };
+    case LOAD_FILTER_JOBS + SUCCESS:
       return {
         ...state,
         loading: false,
