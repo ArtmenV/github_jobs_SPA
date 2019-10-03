@@ -16,6 +16,8 @@ const initState = {
 
 //Главный Reducer здесь логика довольна проста, приняли данные и что-то с ними сделали.
 //LOAD_FILTER_JOBS + SUCCESS => здесь я фильтрую массив по Full Time.
+//Конечно в продакшене нужно обрабатывать ошибки и здесь еше можно LOAD_ALL_JOBS + ERROR и
+//сделать компонент который при ошибках будет выводить информацию для пользователя
 
 export const JobsReducer = (state = initState, action) => {
   switch (action.type) {
