@@ -1,15 +1,23 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { singleComponentAction } from "../redux/actions/index.js";
 import moment from "moment";
 
 export const JobItem = ({ job }) => {
   const time = new Date(job.created_at);
   const date = moment(time).fromNow();
+  const dispatch = useDispatch();
+
+  const singleFile = id => {
+    dispatch(singleComponentAction(id));
+  };
+
   return (
     <div className="container col-md-10">
       <div className="d-flex p-2 flex__container ">
         <div>
-          <NavLink to="">
+          <NavLink to="" onClick={() => singleFile(job.id)}>
             <h5>{job.title}</h5>
           </NavLink>
           <span>

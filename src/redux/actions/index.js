@@ -4,7 +4,8 @@ export const SUCCESS = "SUCCESS";
 export const START = "START";
 
 export const LOAD_JOBS = "LOAD_JOBS";
-// https://jobs.github.com/positions.json?description=python&location=new+york
+
+export const LOAD_SINGLE_FILE = "LOAD_SINGLE_FILE";
 
 export const loadJobsAction = (
   description,
@@ -27,4 +28,11 @@ export const loadJobsAction = (
     payload: loadJobs.data,
     check: x
   });
+};
+
+export const singleComponentAction = id => {
+  return {
+    type: LOAD_SINGLE_FILE,
+    payload: id
+  };
 };

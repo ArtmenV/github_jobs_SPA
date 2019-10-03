@@ -1,9 +1,11 @@
-import { LOAD_JOBS, START, SUCCESS } from "../actions";
+import { LOAD_JOBS, START, SUCCESS, LOAD_SINGLE_FILE } from "../actions";
 
 const initState = {
   loading: false,
+  isOpen: false,
   check: false,
-  jobs: []
+  jobs: [],
+  singleFile: []
 };
 
 export const JobsReducer = (state = initState, action) => {
@@ -22,6 +24,12 @@ export const JobsReducer = (state = initState, action) => {
           action.check === true
             ? action.payload.filter(item => item.type === "Full Time")
             : action.payload
+      };
+    case LOAD_SINGLE_FILE:
+      return {
+        ...state,
+        isOpen: true,
+        singleFile: state.jobs.filter(job => job.id === action.payload)
       };
     default:
       return state;

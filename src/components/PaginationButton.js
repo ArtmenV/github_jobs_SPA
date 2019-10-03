@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { loadJobsAction } from "../redux/actions/index.js";
-import { useDispatch } from "react-redux";
+import React from "react";
 
 export const PaginationButton = ({ prevPage, nextPage }) => {
   return (

@@ -17,9 +17,8 @@ export const JobsList = () => {
       <ul className="jobs__list">
         {jobsList.map(job => {
           return (
-            <li key={job.id}>
+            <li className="jobs__list-item" key={job.id}>
               <JobItem job={job} />
-              <hr />
             </li>
           );
         })}
