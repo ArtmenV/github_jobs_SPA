@@ -1,5 +1,7 @@
 import React from "react";
 
+//Это две кнопки которые помогают мне получать новые данные.
+
 export const PaginationButton = ({ prevPage, nextPage }) => {
   return (
     <div

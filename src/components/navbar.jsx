@@ -6,15 +6,13 @@ export const Navbar = () => {
     <nav className="navbar navbar-dark navbar-expand-md bg-primary">
       <div className="d-flex container col-md-8">
         <div className="navbar-brand">
-          <h4>Github jobs</h4>
+          <NavLink className="nav-link text-light" to="/" exact>
+            <h5>Github jobs</h5>
+          </NavLink>
         </div>
 
         <ul className="navbar-nav">
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/" exact>
-              <h5>Home</h5>
-            </NavLink>
-          </li>
+          <li className="nav-item"></li>
         </ul>
       </div>
     </nav>

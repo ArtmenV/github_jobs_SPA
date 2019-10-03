@@ -14,6 +14,9 @@ const initState = {
   singleFile: []
 };
 
+//Главный Reducer здесь логика довольна проста, приняли данные и что-то с ними сделали.
+//LOAD_FILTER_JOBS + SUCCESS => здесь я фильтрую массив по Full Time.
+
 export const JobsReducer = (state = initState, action) => {
   switch (action.type) {
     case LOAD_ALL_JOBS + START:
@@ -21,7 +24,6 @@ export const JobsReducer = (state = initState, action) => {
         ...state,
         loading: true
       };
-    // eslint-disable-next-line no-duplicate-case
     case LOAD_ALL_JOBS + SUCCESS:
       return {
         ...state,

@@ -1,5 +1,7 @@
 import React from "react";
 
+//Простой спиннер при запросах
+
 export const Loader = () => {
   return (
     <div className="text-center">

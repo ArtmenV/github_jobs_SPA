@@ -3,6 +3,8 @@ import { SinglePage } from "../components/SinglePage";
 import { MainPage } from "../layout/main.js";
 import { Switch, Route } from "react-router-dom";
 
+//Здесь реализуем наш роутинг
+
 export const RootRoutes = () => (
   <>
     <Switch>

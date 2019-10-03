@@ -2,11 +2,19 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { loadJobsAction, loadAllJobsAction } from "../redux/actions/index.js";
 
+//Довольно большой компонент получился, но все очень просто. Валидируем два инпута и чекбокс.
+//В useEffect вызывается action, благодоря чему получаем стартовые данные с сервера
+//Второй action отправляем при сабмите формы.
+
 export const SearchInput = ({ currentPage }) => {
   const [valueDescription, setValueDescription] = useState("");
   const [valueLocation, setValueLocation] = useState("");
   const [x, setX] = useState(false);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadAllJobsAction(currentPage));
+  }, [currentPage]);
 
   const handler = () => {
     setX(!x);
@@ -22,12 +30,8 @@ export const SearchInput = ({ currentPage }) => {
 
   const handleFormValue = e => {
     e.preventDefault();
-    dispatch(loadJobsAction(valueDescription, valueLocation, x, currentPage));
+    dispatch(loadJobsAction(valueDescription, valueLocation, x));
   };
-
-  useEffect(() => {
-    dispatch(loadAllJobsAction());
-  }, []);
 
   return (
     <form onSubmit={handleFormValue} className="container col-md-8">

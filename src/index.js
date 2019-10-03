@@ -7,6 +7,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store/index";
 
+//Корневой Файл нашего проекта, здесь оборачиваем все в Store & React-Router.
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>

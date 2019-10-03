@@ -3,10 +3,13 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./SinglePage.scss";
 
+//Здесь выводим страницу с полной информацией конкретной компании.
+//интересно в Реакте dangerouslySetInnerHTML в замен innerHTML
+
 export const SinglePage = () => {
   const job = useSelector(state => state.JobsReducer.singleFile);
   console.log(job, "single job");
-  //интересно в Реакте dangerouslySetInnerHTML в замен innerHTML
+
   return job.map(job => {
     const createText = () => {
       return { __html: job.description };
